@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="hero-unit">
+        <form class="form-horizontal" action="" method="post">
+            {% for field in form %}
+                <div class="control-group">
+                    {{ field.errors }}
+                    <label class="control-label" for="id_{{ field.html_name }}">{{ field.label }}:</label>
+                    <div class="controls">
+                        {{ field }}
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="control-group">
+                <div class="controls">
+                    <input type="submit" value="Submit" />
+                    {% block extra_controls %}{% endblock %}
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "navbar_base.html" %}
+
+{% load staticfiles %}
+{% load i18n %}
+
+{% block navbar_main %}
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="item active">
+        <img src="{% static "img/carousel/slide-01.jpg" %}" alt="">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>We are ...</h1>
+          <p class="lead">Primarily specialized in engineering goods such as Raw materials, fabricated items, Machineries & Equipments for Boiler, sugar plants, cement plants, steel plants and material handling.</p>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+        <img src="{% static "img/carousel/slide-02.jpg" %}" alt="">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>We can ...</h1>
+          <p class="lead">Cover wide range of raw materials like MS (Plates, Pipes, Tubes & pipe fittings, PVC pipe adhesive), window, tructures, SS (Plates, pipes, Tubes) and alloy steel materials.</p>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+        <img src="{% static "img/carousel/slide-03.jpg" %}" alt="">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>We are always ...</h1>
+          <p class="lead">Developing constantly more to keep a pace with the needs of our customers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div><!-- /.carousel -->
+
+
+
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
+
+<div class="container marketing">
+
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    <div class="span4">
+      <h2>Building materials</h2>
+      <p>HILTON TRADE metal building materials department is committed to developing international hardware building materials product distributors, for the global building materials product users to provide timely, comprehensive and thoughtful service. With rich experience in building materials product marketing, perfect logistics distribution, the upstream and downstream of technical support and good relations of cooperation, make the xi dong international has ability in the aspect of basic building materials product marketing for international clients to provide timely, detailed, comprehensive service.</p>
+      <p><a class="btn" href="#">View details &raquo;</a></p>
+    </div><!-- /.span4 -->
+    <div class="span4">
+      <h2>Machinery accessories</h2>
+      <p>Machinery accessories department professional design and sales in line with international standards of mechanical fittings products. Products are exported to Europe, Australia, South America, Singapore, Japan, Hong Kong and Taiwan and other countries and regions. Welcome your inquiry! We will provide you with quality products, first-class service.</p>
+      <p><a class="btn" href="#">View details &raquo;</a></p>
+    </div><!-- /.span4 -->
+    <div class="span4">
+      <h2>Imp & Exp</h2>
+      <p>We have more than ten year experience on export agency, we can supply whole service.</p>
+      <p><a class="btn" href="#">View details &raquo;</a></p>
+    </div><!-- /.span4 -->
+  </div><!-- /.row -->
+{% endblock %}
+
+{% block extra_navbar_body %}
+    <script>
+      !function ($) {
+        $(function(){
+          // carousel demo
+          $('#myCarousel').carousel()
+        })
+      }(window.jQuery)
+    </script>
+    <script src="{% static "js/holder.js" %}"></script>
+{% endblock %}
