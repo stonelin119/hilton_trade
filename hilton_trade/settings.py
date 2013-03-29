@@ -137,8 +137,9 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'django.contrib.formtools',
-    'account',
-    'forms_bootstrap',
+    # 'account',
+    # 'forms_bootstrap',
+    'product',
 )
 
 # A sample logging configuration. The only tangible logging

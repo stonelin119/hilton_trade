@@ -1,0 +1,29 @@
+{% load i18n %}
+
+<ul class="thumbnails">
+    {% with count=0 %}
+
+    {% for product in products %}
+
+    {{ count|add:1}}
+
+    {% if forloop.counter0|divisibleby:2 %}
+    <div class="row">
+    {% endif %}
+        <li class="span4">
+            <div class="thumbnail">
+                <img data-src="holder.js/300x200" alt="">
+                <h3>
+                    <a href="{{ product.get_absolute_url }}" target="view_window">
+                        {% trans product.product_name %}
+                    </a>
+                </h3>
+                <p>{% trans product.description %}</p>
+            </div>
+        </li>
+    {% if count|divisibleby:2 %}
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endwith %}
+</ul>

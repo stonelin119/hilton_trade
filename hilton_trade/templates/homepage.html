@@ -1,6 +1,7 @@
 {% extends "navbar_base.html" %}
 
 {% load staticfiles %}
+{% load url from future %}
 {% load i18n %}
 
 {% block navbar_main %}
@@ -53,17 +54,17 @@
     <div class="span4">
       <h2>Building materials</h2>
       <p>HILTON TRADE metal building materials department is committed to developing international hardware building materials product distributors, for the global building materials product users to provide timely, comprehensive and thoughtful service. With rich experience in building materials product marketing, perfect logistics distribution, the upstream and downstream of technical support and good relations of cooperation, make the xi dong international has ability in the aspect of basic building materials product marketing for international clients to provide timely, detailed, comprehensive service.</p>
-      <p><a class="btn" href="#">View details &raquo;</a></p>
+      <p><a class="btn" href="{% url 'product' 1 %}">View details &raquo;</a></p>
     </div><!-- /.span4 -->
     <div class="span4">
       <h2>Machinery accessories</h2>
       <p>Machinery accessories department professional design and sales in line with international standards of mechanical fittings products. Products are exported to Europe, Australia, South America, Singapore, Japan, Hong Kong and Taiwan and other countries and regions. Welcome your inquiry! We will provide you with quality products, first-class service.</p>
-      <p><a class="btn" href="#">View details &raquo;</a></p>
+      <p><a class="btn" href="{% url 'product' 2 %}">View details &raquo;</a></p>
     </div><!-- /.span4 -->
     <div class="span4">
       <h2>Imp & Exp</h2>
       <p>We have more than ten year experience on export agency, we can supply whole service.</p>
-      <p><a class="btn" href="#">View details &raquo;</a></p>
+      <p><a class="btn" href="{% url 'product' 3 %}">View details &raquo;</a></p>
     </div><!-- /.span4 -->
   </div><!-- /.row -->
 {% endblock %}
