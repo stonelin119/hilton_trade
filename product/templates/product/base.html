@@ -49,10 +49,14 @@ $(document).ready(function(){
         });
     });
 
-    $.get("/product/category/{{ current_type }}")
-    .done(function(data) {
-        $("#products").html(data);
-    });
+    {% if current_type == -1 %}
+        $.get("{% url 'imp&exp' %}")
+    {% else %}
+        $.get("/product/category/{{ current_type }}")
+    {% endif %}
+        .done(function(data) {
+            $("#products").html(data);
+        });
 
 });
 </script>

@@ -33,7 +33,7 @@ class ProductInfo(models.Model):
     product_type     = models.ForeignKey(ProductType)
     product_name     = models.CharField(max_length=384)
     description      = models.CharField(max_length=3072)
-    photo            = models.CharField(max_length=3072)
+    photo            = models.ImageField(upload_to='photos', max_length=3072)
     model            = models.CharField(max_length=384)
     product_package          = models.CharField(max_length=384)
     min_order_amount = models.CharField(max_length=384)

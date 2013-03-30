@@ -1,0 +1,44 @@
+
+{% load url from future %}
+        {% block list %}
+        {% endblock %}
+
+    {% block pagination %}
+        {% if is_paginated %}
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                    <a id="prepage" href="{% block previous_page_url %}{% endblock %}">prvious</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ page_obj.number }}/{{ page_obj.paginator.num_pages }}
+                    </span>
+
+                    {% if page_obj.has_next %}
+                    <a id="nextpage" href="#">next</a>
+                    {% endif %}
+                </span>
+            </div>
+        {% endif %}
+    {% endblock %}
+
+<script lanuage="javascript">
+$(document).ready(function(){
+    $('#prepage').attr('href', 'javascript:void(0);')
+    .bind('click', function(){
+        $.get("{% url 'products' product_type %}?page={{ page_obj.previous_page_number }}")
+        .done(function(data) {
+            $("#products").html(data);
+        });
+    });
+
+    $('#nextpage').attr('href', 'javascript:void(0);')
+    .bind('click', function(){
+            $.get("{% url 'products' product_type %}?page={{ page_obj.next_page_number }}")
+        .done(function(data) {
+            $("#products").html(data);
+        });
+    });
+});
+</script>

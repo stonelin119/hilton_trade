@@ -137,6 +137,17 @@ body > #content {height: auto; min-height: 100%;}
   margin-right: 10px;
 }
 
+
+#myModal .modal-body {
+  max-height: 800px;
+  margin: 0 10px 10px 0;
+  padding-left: 20px;
+}
+#myModal {
+  width: 900px;
+  margin: 0 0 0 -450px;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
