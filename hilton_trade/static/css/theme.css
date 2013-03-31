@@ -148,6 +148,10 @@ body > #content {height: auto; min-height: 100%;}
   margin: 0 0 0 -450px;
 }
 
+#productdetail {
+  padding-top: 20px;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
