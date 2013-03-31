@@ -10,26 +10,31 @@
 from django.db import models
 
 class ProductCategory(models.Model):
-    id            = models.IntegerField(primary_key=True)
     category_name = models.CharField(max_length=384)
     description   = models.CharField(max_length=3072)
     create_time   = models.DateTimeField(auto_now_add=True)
     update_time   = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.category_name
+
     class Meta:
         db_table = u'product_category'
 
 class ProductType(models.Model):
-    id          = models.IntegerField(primary_key=True)
     category    = models.ForeignKey(ProductCategory)
     type_name   = models.CharField(max_length=384)
     description = models.CharField(max_length=3072)
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.type_name
+
     class Meta:
         db_table = u'product_type'
 
 class ProductInfo(models.Model):
-    id               = models.IntegerField(primary_key=True)
     product_type     = models.ForeignKey(ProductType)
     product_name     = models.CharField(max_length=384)
     description      = models.CharField(max_length=3072)
@@ -39,6 +44,9 @@ class ProductInfo(models.Model):
     min_order_amount = models.CharField(max_length=384)
     create_time      = models.DateTimeField(auto_now_add=True)
     update_time      = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.product_name
 
     @models.permalink
     def get_absolute_url(self):
@@ -55,7 +63,6 @@ class ProductInfoDetail(models.Model):
         (4, 'Usage Scope'),
         )
 
-    id                = models.IntegerField(primary_key=True)
     product_info_type = models.IntegerField(choices=DETAIL_INFO_TYPE, default=1)
     product_info      = models.ForeignKey(ProductInfo)
     description       = models.CharField(max_length=3072)

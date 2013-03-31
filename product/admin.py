@@ -1,15 +1,18 @@
 from django.contrib import admin
 
-from account.models import Account, SignupCode, AccountDeletion
+from product.models import ProductCategory, ProductInfo, ProductInfoDetail, ProductType 
 
+class ProductTypeInline(admin.TabularInline):
+	model = ProductType
 
-class SignupCodeAdmin(admin.ModelAdmin):
-    
-    list_display = ["code", "max_uses", "use_count", "expiry", "created"]
-    search_fields = ["code", "email"]
-    list_filter = ["created"]
+class ProductCategoryAdmin(admin.ModelAdmin):
+	inlines = [ProductTypeInline]
 
+class ProductInfoDetailInline(admin.TabularInline):
+	model = ProductInfoDetail
 
-admin.site.register(Account)
-admin.site.register(SignupCode, SignupCodeAdmin)
-admin.site.register(AccountDeletion, list_display=["email", "date_requested", "date_expunged"])
+class ProductInfoAdmin(admin.ModelAdmin):
+	inlines = [ProductInfoDetailInline]
+
+admin.site.register(ProductCategory, ProductCategoryAdmin)
+admin.site.register(ProductInfo, ProductInfoAdmin)
