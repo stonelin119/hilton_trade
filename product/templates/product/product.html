@@ -2,10 +2,10 @@
 {% load i18n %}
 
 <div class="row">
-    <div class="span4">
-        <img src="{{ product_info.photo.url }}" alt="">
+    <div class="span2">
+        <img data-src="holder.js/320x212" src="{{ product_info.photo.url }}" alt="">
     </div>
-    <div class="span4">
+    <div class="span3">
         <table class="table table-striped table-bordered table-condensed">
             <tbody>
                 <tr>
@@ -29,7 +29,7 @@
     </div>
 </div>
 <div id="productdetail" class="row">
-    <div class="span8">
+    <div class="span5">
         <div class="tabbable"> <!-- Only required for left/right tabs -->
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab_detail" data-toggle="tab">{% trans "Detail" %}</a></li>
