@@ -138,12 +138,22 @@ body > #content {height: auto; min-height: 100%;}
 }
 
 
-#myModal .modal-body {
+#myModala .modal-body {
   max-height: 800px;
   margin: 0 10px 10px 0;
   padding-left: 20px;
 }
-#myModal {
+#myModala {
+  width: 900px;
+  margin: 0 0 0 -450px;
+}
+
+#myModalb .modal-body {
+  max-height: 800px;
+  margin: 0 10px 10px 0;
+  padding-left: 20px;
+}
+#myModalb {
   width: 900px;
   margin: 0 0 0 -450px;
 }

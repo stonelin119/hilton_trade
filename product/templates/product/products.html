@@ -16,35 +16,52 @@
     </ul>
 </div>
 <div class="hero-unit">
-    <ul>
+{% if products %}
         <table class="table table-striped">
             <tbody>
                 {% for product in products %}
                 {% if forloop.counter0|divisibleby:2 %}
                 <tr>
-                    {% endif %}
+                {% endif %}
                     <td>
                         <div class="thumbnail">
-                            <img data-src="holder.js/360x240" src="{{ product.photo.url }}" alt="">
+                            <img data-src="holder.js/320x212" src="{{ product.photo.url }}" alt="">
                             <h3>
-                                <a data-toggle="modal" href="{% url 'product_detail' product.id %}" data-target="#myModal">
+                                {% if forloop.counter0|divisibleby:2 %}
+                                <a data-toggle="modal" href="{% url 'product_detail' product.id %}" data-target="#myModala">
+                                {% else %}
+                                <a data-toggle="modal" href="{% url 'product_detail' product.id %}" data-target="#myModalb">
+                                {% endif %}
                                     {% trans product.product_name %}
                                 </a>
                             </h3>
                             <p>{% trans product.description %}</p>
                         </div>
                     </td>
-                    {% if forloop.counter|divisibleby:2 %}
+                {% if forloop.counter|divisibleby:2 %}
                 </tr>
                 {% endif %}
                 {% endfor %}
             </tbody>
         </table>
-    </ul>
+        {% else %}
+        <h3>Coming soon ...</h3>
+{% endif %}
 </div>
 
 <!-- Modal -->
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="myModala" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Product Info</h3>
+  </div>
+  <div class="modal-body">
+    <div id="detail"></div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="myModalb" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Product Info</h3>
