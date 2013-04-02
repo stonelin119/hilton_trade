@@ -11,7 +11,7 @@
     <li><a href="{% url 'product_category' category.id %}">{% trans "Imp & Exp" %}</a></li>
     {% else %}
     <li class="dropdown-submenu">
-        <a tabindex="-1" href="{% url 'product_category' category.id %}">{% trans category.category_name %}</a>
+        <a tabindex="-1" href="#">{% trans category.category_name %}</a>
         <ul id="products_menu" class="dropdown-menu">
             {% for type in category.producttype_set.all %}
             <li>
