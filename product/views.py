@@ -10,33 +10,32 @@ class ProductInfoView(DetailView):
 
 class ProductCategoryView(ListView):
     model = ProductCategory 
-    template_name = 'product/base.html'
+    template_name = 'product/category.html'
     context_object_name = "product_categories"
     queryset = ProductCategory.objects.all()
-    paginate_by = 2 
 
     def get_context_data(self, **kwargs):
-       context = super(ProductCategoryView, self).get_context_data(**kwargs)
-       current_category = int(self.kwargs['category'])
-       current_type = -1
-       if current_category != 3:
-           current_type = ProductType.objects.filter(category_id=current_category)[0].id
+        context = super(ProductCategoryView, self).get_context_data(**kwargs)
+        current_category = ProductCategory.objects.get(id=int(self.kwargs['category']))
 
-       context['current_type'] = current_type
-       return context
+        context['current_category'] = current_category 
+        context['path'] = [current_category.category_name]
+        return context
 
 class ProductListView(ListView):
     model = ProductInfo
-    template_name = 'product/products.html'
+    template_name = 'product/pagination_base.html'
     context_object_name = "products"
     paginate_by = 2
 
     def get_context_data(self, **kwargs):
         context = super(ProductListView, self).get_context_data(**kwargs)
-        product_type = int(self.kwargs['type'])
-        current_type = ProductType.objects.get(id=product_type)
-        context['path'] = [current_type.category.category_name, current_type.type_name]
-        context['product_type'] = product_type
+        current_type = ProductType.objects.get(id=int(self.kwargs['type']))
+        current_category = ProductCategory.objects.get(id=int(self.kwargs['category']))
+        context['product_categories'] = ProductCategory.objects.all()
+        context['current_category'] = current_category 
+        context['current_type'] =current_type 
+        context['path'] = [current_category.category_name, current_type.type_name]
         return context
 
     def get_queryset(self):

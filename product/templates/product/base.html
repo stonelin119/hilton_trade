@@ -7,57 +7,27 @@
 <ul class="nav nav-list">
     <li class="nav-header">{% trans "Product" %}</li>
     {% for category in product_categories %}
+    {% if category.id == 3 %}
+    <li><a href="{% url 'product_category' category.id %}">{% trans "Imp & Exp" %}</a></li>
+    {% else %}
     <li class="dropdown-submenu">
-        <a tabindex="-1" href="#">{% trans category.category_name %}</a>
+        <a tabindex="-1" href="{% url 'product_category' category.id %}">{% trans category.category_name %}</a>
         <ul id="products_menu" class="dropdown-menu">
             {% for type in category.producttype_set.all %}
             <li>
-                <a type="{{ type.id }}" href="#">{% trans type.type_name %}</a>
+                <a href="{% url 'product_list' category.id type.id %}">{% trans type.type_name %}</a>
             </li>
             {% endfor %}
         </ul>
     </li>
+    {% endif %}
     <li class="divider"></li>
     {% endfor %}
-    <li><a id="impexp" href="#">{% trans "Imp & Exp" %}</a></li>
 </ul>
 {% endblock %}
 
-{% block sidebar_main %}
-<div id="products"></div>
-{% endblock %}
+    {% block sidebar_main %}
+    {% endblock %}
 
-{% block extra_navbar_body %}
-<script lanuage="javascript">
-$(document).ready(function(){
-    $("#products_menu li a").each(function(){
-        $(this).attr('href', 'javascript:void(0);')
-        .bind('click', function(){
-            var type_id = $(this).attr("type");
-            $.get("/product/category/" + type_id)
-            .done(function(data) {
-                $("#products").html(data);
-            });
-        });
-    });
-
-    $('#impexp').attr('href', 'javascript:void(0);')
-    .bind('click', function(){
-        $.get("{% url 'imp&exp' %}")
-        .done(function(data) {
-            $("#products").html(data);
-        });
-    });
-
-    {% if current_type == -1 %}
-        $.get("{% url 'imp&exp' %}")
-    {% else %}
-        $.get("/product/category/{{ current_type }}")
-    {% endif %}
-        .done(function(data) {
-            $("#products").html(data);
-        });
-
-});
-</script>
+{% block sidebar_body %}
 {% endblock %}

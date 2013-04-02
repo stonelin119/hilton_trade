@@ -1,20 +1,6 @@
-
-{% extends "pagination_base.html" %}
-
 {% load i18n %}
 {% load url from future %}
 
-{% block list %}
-<div id="path">
-    <ul class="breadcrumb">
-        {% for node in path %}
-        <li {% if forloop.last %} class="active" {% endif %}>
-            {% trans node %}
-            {% if not forloop.last %} <span class="divider">/</span> {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
-</div>
 <div class="hero-unit">
 {% if products %}
         <table class="table table-striped">
@@ -70,4 +56,3 @@
     <div id="detail"></div>
   </div>
 </div>
-{% endblock %}

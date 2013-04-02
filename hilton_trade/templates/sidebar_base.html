@@ -1,5 +1,7 @@
 {% extends "navbar_base.html" %}
 
+{% load i18n %}
+
 {% block extra_navbar_main %}
 <div class="row">
     <div class="span3">
@@ -12,10 +14,26 @@
         </div>
     </div>
     <div class="span9">
+        <div id="path">
+            <ul class="breadcrumb">
+                {% for node in path %}
+                <li {% if forloop.last %} class="active" {% endif %}>
+                    {% trans node %}
+                    {% if not forloop.last %}
+                    <span class="divider">/</span>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
         <div>
             {% block sidebar_main %}
             {% endblock %}
         </div>
     </div>
 </div>
+{% endblock %}
+{% block extra_navbar_body %}
+    {% block sidebar_body %}
+    {% endblock %}
 {% endblock %}
