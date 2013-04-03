@@ -54,7 +54,7 @@ MEDIA_ROOT = '/home/media/hilton_trade/media/'
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
 # MEDIA_URL = 'http://172.16.0.128/media/'
-MEDIA_URL = 'http://192.168.1.177/media/'
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
