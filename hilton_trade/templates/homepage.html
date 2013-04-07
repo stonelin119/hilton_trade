@@ -55,9 +55,17 @@
   <div class="row">
     {% endif %}
     <div class="span3">
-      <h2>{% trans category.category_name %}</h2>
+      <h2>
+        <a href="{% url 'product_category' category.id %}">
+          {% trans category.category_name %}
+        </a>
+      </h2>
       <p>{% trans category.description %}</p>
-      <p><a class="btn" href="{% url 'product_category' category.id %}">View details &raquo;</a></p>
+      <p>
+        <a class="btn" href="{% url 'product_category' category.id %}">
+        {% trans "View details" %} &raquo;
+        </a>
+      </p>
     </div><!-- /.span4 -->
   {% if forloop.counter|divisibleby:4 %}
   </div><!-- /.row -->
