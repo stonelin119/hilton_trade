@@ -8,11 +8,13 @@
     <div class="row">
         <div class="span8">
             {% if current_category.id == 1 %}
-      <p>HILTON TRADE metal building materials department is committed to developing international hardware building materials product distributors, for the global building materials product users to provide timely, comprehensive and thoughtful service. With rich experience in building materials product marketing, perfect logistics distribution, the upstream and downstream of technical support and good relations of cooperation, make the xi dong international has ability in the aspect of basic building materials product marketing for international clients to provide timely, detailed, comprehensive service.</p>
+                <p>HILTON TRADE metal building materials department is committed to developing international hardware building materials product distributors, for the global building materials product users to provide timely, comprehensive and thoughtful service. With rich experience in building materials product marketing, perfect logistics distribution, the upstream and downstream of technical support and good relations of cooperation, make the xi dong international has ability in the aspect of basic building materials product marketing for international clients to provide timely, detailed, comprehensive service.</p>
             {% elif current_category.id == 2 %}
-      <p>Machinery accessories department professional design and sales in line with international standards of mechanical fittings products. Products are exported to Europe, Australia, South America, Singapore, Japan, Hong Kong and Taiwan and other countries and regions. Welcome your inquiry! We will provide you with quality products, first-class service.</p>
+                <p>Machinery accessories department professional design and sales in line with international standards of mechanical fittings products. Products are exported to Europe, Australia, South America, Singapore, Japan, Hong Kong and Taiwan and other countries and regions. Welcome your inquiry! We will provide you with quality products, first-class service.</p>
             {% elif current_category.id == 3 %}
-            {% include 'product/imp&exp.html' %}
+                {% include 'product/imp&exp.html' %}
+            {% elif current_category.id == 4 %}
+                {% include 'product/refrigerant.html' %}
             {% endif %}
         </div>
         <div class="span4">

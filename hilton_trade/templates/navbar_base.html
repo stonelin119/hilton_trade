@@ -1,5 +1,6 @@
 {% extends "site_base.html" %}
 
+{% load staticfiles %}
 {% load url from future %}
 {% load i18n %}
 
@@ -19,7 +20,9 @@
                         <span class="icon-bar"></span>
                     </button>
                     {% block site_brand %}
-                    <a class="brand" href="{% url "home" %}">{% trans "Hilton trade" %}</a>
+                    <a class="brand" href="{% url "home" %}">
+                        <img data-src="holder.js/20x20" src="{% static "img/logo.jpg" %}" alt="">
+                    </a>
                     <!-- Responsive Navbar Part 2: Place all navbar content you want collapsed withing .navbar-collapse.collapse. -->
                     {% endblock %}
                     <div class="nav-collapse collapse">
