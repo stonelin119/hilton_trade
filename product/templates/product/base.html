@@ -7,10 +7,8 @@
 <ul class="nav nav-list">
     <li class="nav-header">{% trans "Product" %}</li>
     {% for category in product_categories %}
-    {% if category.id == 3 %}
-    <li><a href="{% url 'product_category' category.id %}">{% trans "Imp & Exp" %}</a></li>
-    {% elif category.id == 4 %}
-    <li><a href="{% url 'product_category' category.id %}">{% trans "Refrigerant" %}</a></li>
+    {% if category.id > 2 %}
+    <li><a href="{% url 'product_category' category.id %}">{% trans category.category_name %}</a></li>
     {% else %}
     <li class="dropdown-submenu">
         <a tabindex="-1" href="#">{% trans category.category_name %}</a>
